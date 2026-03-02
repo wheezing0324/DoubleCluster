@@ -1,0 +1,1211 @@
+Logging to ./log/simulation_cifar10_alpha0.5_20260210_215914.log
+Initializing Simulation with cifar10...
+Loading cifar10 and partitioning...
+Data loaded.
+Initializing Topic Models with noise...
+Server started. Training for 250 rounds.
+
+=== Round 1 ===
+  [Warm-up] Round 1/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 9.53%
+
+=== Round 2 ===
+  [Warm-up] Round 2/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 9.53%
+
+=== Round 3 ===
+  [Warm-up] Round 3/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 9.53%
+
+=== Round 4 ===
+  [Warm-up] Round 4/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 9.53%
+
+=== Round 5 ===
+  [Warm-up] Round 5/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 10.02%
+
+=== Round 6 ===
+  [Warm-up] Round 6/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 10.02%
+
+=== Round 7 ===
+  [Warm-up] Round 7/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 9.94%
+
+=== Round 8 ===
+  [Warm-up] Round 8/20. Training Global Model only.
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 10.20%
+
+=== Round 9 ===
+  [Warm-up] Round 9/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.95%
+
+=== Round 10 ===
+  [Warm-up] Round 10/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.90%
+
+=== Round 11 ===
+  [Warm-up] Round 11/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.90%
+
+=== Round 12 ===
+  [Warm-up] Round 12/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 14.09%
+
+=== Round 13 ===
+  [Warm-up] Round 13/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 14.09%
+
+=== Round 14 ===
+  [Warm-up] Round 14/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 12.59%
+
+=== Round 15 ===
+  [Warm-up] Round 15/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.07%
+
+=== Round 16 ===
+  [Warm-up] Round 16/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.07%
+
+=== Round 17 ===
+  [Warm-up] Round 17/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.07%
+
+=== Round 18 ===
+  [Warm-up] Round 18/20. Training Global Model only.
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 12.18%
+
+=== Round 19 ===
+  [Warm-up] Round 19/20. Training Global Model only.
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 11.67%
+
+=== Round 20 ===
+  [Warm-up] Round 20/20. Training Global Model only.
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 11.67%
+
+=== Round 21 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 11.67%
+
+=== Round 22 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.46%
+
+=== Round 23 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.48%
+
+=== Round 24 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.63%
+
+=== Round 25 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.42%
+
+=== Round 26 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 20.93%
+
+=== Round 27 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.31%
+
+=== Round 28 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.28%
+
+=== Round 29 ===
+  [Tier 3] Client 26 update arrived for Topic 0. Staleness: 23
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.30%
+
+=== Round 30 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.29%
+
+=== Round 31 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 15.30%
+
+=== Round 32 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 18.40%
+
+=== Round 33 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.54%
+
+=== Round 34 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.57%
+
+=== Round 35 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.83%
+
+=== Round 36 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.85%
+
+=== Round 37 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.88%
+
+=== Round 38 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.89%
+
+=== Round 39 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.95%
+
+=== Round 40 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.96%
+
+=== Round 41 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.95%
+
+=== Round 42 ===
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.84%
+
+=== Round 43 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.83%
+
+=== Round 44 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.83%
+
+=== Round 45 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 16.94%
+
+=== Round 46 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.46%
+
+=== Round 47 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.46%
+
+=== Round 48 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.70%
+
+=== Round 49 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.10%
+
+=== Round 50 ===
+>>> [Data Profiling] Updating Soft Clustering...
+>>> [Clustering Round] Force Full Sampling to update prototypes...
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.21%
+
+=== Round 51 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.21%
+
+=== Round 52 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.22%
+
+=== Round 53 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.22%
+
+=== Round 54 ===
+  [Tier 3] Client 91 update arrived for Topic 2. Staleness: 17
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.20%
+
+=== Round 55 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.51%
+
+=== Round 56 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.57%
+
+=== Round 57 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Tier 3] Client 7 update arrived for Topic 0. Staleness: 13
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.83%
+
+=== Round 58 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.94%
+
+=== Round 59 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.97%
+
+=== Round 60 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.97%
+
+=== Round 61 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.18%
+
+=== Round 62 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.18%
+
+=== Round 63 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.19%
+
+=== Round 64 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.37%
+
+=== Round 65 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Tier 3] Client 53 update arrived for Topic 0. Staleness: 18
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.60%
+
+=== Round 66 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.55%
+
+=== Round 67 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.94%
+
+=== Round 68 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.96%
+
+=== Round 69 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.95%
+
+=== Round 70 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.96%
+
+=== Round 71 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.27%
+
+=== Round 72 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.40%
+
+=== Round 73 ===
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.92%
+
+=== Round 74 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.30%
+
+=== Round 75 ===
+  [Tier 3] Client 68 update arrived for Topic 2. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.39%
+
+=== Round 76 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.48%
+
+=== Round 77 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.15%
+
+=== Round 78 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.77%
+
+=== Round 79 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.77%
+
+=== Round 80 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.87%
+
+=== Round 81 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.00%
+
+=== Round 82 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.94%
+
+=== Round 83 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.57%
+
+=== Round 84 ===
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.60%
+
+=== Round 85 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.61%
+
+=== Round 86 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.61%
+
+=== Round 87 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.43%
+
+=== Round 88 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.52%
+
+=== Round 89 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 20.62%
+
+=== Round 90 ===
+  [Tier 2] Buffer full for Topic 1 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 20.54%
+
+=== Round 91 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.09%
+
+=== Round 92 ===
+  [Tier 3] Client 53 update arrived for Topic 0. Staleness: 23
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 19.09%
+
+=== Round 93 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.66%
+
+=== Round 94 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 21.69%
+
+=== Round 95 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.50%
+
+=== Round 96 ===
+  [Tier 3] Client 19 update arrived for Topic 0. Staleness: 17
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.50%
+
+=== Round 97 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.76%
+
+=== Round 98 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.84%
+
+=== Round 99 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.96%
+
+=== Round 100 ===
+>>> [Data Profiling] Updating Soft Clustering...
+>>> [Clustering Round] Force Full Sampling to update prototypes...
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.69%
+
+=== Round 101 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.79%
+
+=== Round 102 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.89%
+
+=== Round 103 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.89%
+
+=== Round 104 ===
+  [Tier 3] Client 29 update arrived for Topic 2. Staleness: 16
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.84%
+
+=== Round 105 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.82%
+
+=== Round 106 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.90%
+
+=== Round 107 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 24.88%
+
+=== Round 108 ===
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.73%
+
+=== Round 109 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.93%
+
+=== Round 110 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.93%
+
+=== Round 111 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.93%
+
+=== Round 112 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.78%
+
+=== Round 113 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.64%
+
+=== Round 114 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.59%
+
+=== Round 115 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.62%
+
+=== Round 116 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.63%
+
+=== Round 117 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.62%
+
+=== Round 118 ===
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.22%
+
+=== Round 119 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.22%
+
+=== Round 120 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.31%
+
+=== Round 121 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.30%
+
+=== Round 122 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.69%
+
+=== Round 123 ===
+  [Tier 2] Buffer full for Topic 1 (5). Aggregating...
+  [Tier 3] Client 91 update arrived for Topic 1. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.81%
+
+=== Round 124 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Tier 3] Client 26 update arrived for Topic 0. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 32.33%
+
+=== Round 125 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.01%
+
+=== Round 126 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.95%
+
+=== Round 127 ===
+  [Tier 3] Client 26 update arrived for Topic 1. Staleness: 12
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.72%
+
+=== Round 128 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.72%
+
+=== Round 129 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.11%
+
+=== Round 130 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.70%
+
+=== Round 131 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.02%
+
+=== Round 132 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.45%
+
+=== Round 133 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.94%
+
+=== Round 134 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.94%
+
+=== Round 135 ===
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.37%
+
+=== Round 136 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.70%
+
+=== Round 137 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.74%
+
+=== Round 138 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.41%
+
+=== Round 139 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.33%
+
+=== Round 140 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.58%
+
+=== Round 141 ===
+  [Tier 3] Client 19 update arrived for Topic 2. Staleness: 25
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.58%
+
+=== Round 142 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Tier 3] Client 0 update arrived for Topic 1. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.81%
+
+=== Round 143 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.76%
+
+=== Round 144 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.74%
+
+=== Round 145 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.71%
+
+=== Round 146 ===
+  [Tier 3] Client 91 update arrived for Topic 1. Staleness: 27
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.75%
+
+=== Round 147 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.40%
+
+=== Round 148 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.39%
+
+=== Round 149 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.29%
+
+=== Round 150 ===
+>>> [Data Profiling] Updating Soft Clustering...
+>>> [Clustering Round] Force Full Sampling to update prototypes...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.29%
+
+=== Round 151 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.29%
+
+=== Round 152 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.24%
+
+=== Round 153 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.21%
+
+=== Round 154 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.37%
+
+=== Round 155 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.23%
+
+=== Round 156 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 31.75%
+
+=== Round 157 ===
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.92%
+
+=== Round 158 ===
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.24%
+
+=== Round 159 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.28%
+
+=== Round 160 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.28%
+
+=== Round 161 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 31.57%
+
+=== Round 162 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 36.92%
+
+=== Round 163 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Tier 3] Client 72 update arrived for Topic 0. Staleness: 13
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 36.59%
+
+=== Round 164 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 31.53%
+
+=== Round 165 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 35.69%
+
+=== Round 166 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.57%
+
+=== Round 167 ===
+  [Tier 2] Buffer full for Topic 1 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.24%
+
+=== Round 168 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 25.06%
+
+=== Round 169 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 26.31%
+
+=== Round 170 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 22.43%
+
+=== Round 171 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 23.85%
+
+=== Round 172 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 17.39%
+
+=== Round 173 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Tier 3] Client 0 update arrived for Topic 1. Staleness: 22
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.99%
+
+=== Round 174 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.39%
+
+=== Round 175 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.40%
+
+=== Round 176 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.29%
+
+=== Round 177 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.93%
+
+=== Round 178 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.72%
+
+=== Round 179 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 32.62%
+
+=== Round 180 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.23%
+
+=== Round 181 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.21%
+
+=== Round 182 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.40%
+
+=== Round 183 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.16%
+
+=== Round 184 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.46%
+
+=== Round 185 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 31.02%
+
+=== Round 186 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.45%
+
+=== Round 187 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 32.99%
+
+=== Round 188 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.84%
+
+=== Round 189 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.61%
+
+=== Round 190 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.31%
+
+=== Round 191 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.16%
+
+=== Round 192 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 36.12%
+
+=== Round 193 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 29.31%
+
+=== Round 194 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.65%
+
+=== Round 195 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 27.65%
+
+=== Round 196 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.65%
+
+=== Round 197 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.91%
+
+=== Round 198 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.90%
+
+=== Round 199 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 28.86%
+
+=== Round 200 ===
+>>> [Data Profiling] Updating Soft Clustering...
+>>> [Clustering Round] Force Full Sampling to update prototypes...
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.36%
+
+=== Round 201 ===
+
+!!! LR Decay Triggered: 0.01 -> 0.001 !!!
+
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 30.72%
+
+=== Round 202 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 31.38%
+
+=== Round 203 ===
+  [Tier 2] Buffer full for Topic 2 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 33.25%
+
+=== Round 204 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.58%
+
+=== Round 205 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.60%
+
+=== Round 206 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.56%
+
+=== Round 207 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 34.50%
+
+=== Round 208 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.59%
+
+=== Round 209 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.60%
+
+=== Round 210 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.60%
+
+=== Round 211 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.26%
+
+=== Round 212 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.24%
+
+=== Round 213 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.23%
+
+=== Round 214 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.95%
+
+=== Round 215 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.95%
+
+=== Round 216 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.91%
+
+=== Round 217 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.04%
+
+=== Round 218 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.78%
+
+=== Round 219 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.78%
+
+=== Round 220 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.09%
+
+=== Round 221 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.00%
+
+=== Round 222 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.79%
+
+=== Round 223 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.69%
+
+=== Round 224 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 39.69%
+
+=== Round 225 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Tier 3] Client 29 update arrived for Topic 1. Staleness: 18
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.33%
+
+=== Round 226 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 37.57%
+
+=== Round 227 ===
+  [Tier 3] Client 59 update arrived for Topic 1. Staleness: 18
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 37.57%
+
+=== Round 228 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 38.66%
+
+=== Round 229 ===
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.50%
+
+=== Round 230 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 40.58%
+
+=== Round 231 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.83%
+
+=== Round 232 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.76%
+
+=== Round 233 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.76%
+
+=== Round 234 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.38%
+
+=== Round 235 ===
+  [Tier 3] Client 19 update arrived for Topic 2. Staleness: 16
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.38%
+
+=== Round 236 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.37%
+
+=== Round 237 ===
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Tier 3] Client 72 update arrived for Topic 0. Staleness: 22
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.32%
+
+=== Round 238 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.32%
+
+=== Round 239 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 42.17%
+
+=== Round 240 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.28%
+
+=== Round 241 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.98%
+
+=== Round 242 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 41.96%
+
+=== Round 243 ===
+  [Tier 2] Buffer full for Topic 1 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 42.60%
+
+=== Round 244 ===
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 42.60%
+
+=== Round 245 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.95%
+
+=== Round 246 ===
+  [Tier 1] Aggregating 1 updates for Topic 2
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 44.06%
+
+=== Round 247 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.88%
+
+=== Round 248 ===
+  [Tier 3] Client 72 update arrived for Topic 0. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 43.91%
+
+=== Round 249 ===
+  [Tier 1] Aggregating 1 updates for Topic 1
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 44.02%
+
+=== Round 250 ===
+>>> [Data Profiling] Updating Soft Clustering...
+>>> [Clustering Round] Force Full Sampling to update prototypes...
+  [Tier 1] Aggregating 1 updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.2)...
+Global Accuracy: 44.01%

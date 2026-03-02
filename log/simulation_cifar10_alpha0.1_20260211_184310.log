@@ -1,0 +1,68 @@
+Logging to ./DoubleCluster/log/simulation_cifar10_alpha0.1_20260211_184310.log
+Initializing Simulation with cifar10...
+Loading cifar10 and partitioning...
+Data loaded.
+Initializing Topic Models with noise...
+Server started. Training for 300 rounds.
+
+=== Round 1 ===
+  [Warm-up] Round 1/2. Training Global Model only.
+  [Tier 1] Aggregating 16 weighted updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 2 ===
+  [Warm-up] Round 2/2. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (10). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 3 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 4 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+
+Simulation interrupted by user.

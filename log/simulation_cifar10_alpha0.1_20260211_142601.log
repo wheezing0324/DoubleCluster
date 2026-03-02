@@ -1,0 +1,300 @@
+Logging to ./DoubleCluster/log/simulation_cifar10_alpha0.1_20260211_142601.log
+Initializing Simulation with cifar10...
+Loading cifar10 and partitioning...
+Data loaded.
+Initializing Topic Models with noise...
+Server started. Training for 300 rounds.
+
+=== Round 1 ===
+  [Warm-up] Round 1/20. Training Global Model only.
+  [Tier 1] Aggregating 16 weighted updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 2 ===
+  [Warm-up] Round 2/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (10). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 3 ===
+  [Warm-up] Round 3/20. Training Global Model only.
+  [Tier 1] Aggregating 13 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 4 ===
+  [Warm-up] Round 4/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (5). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 5 ===
+  [Warm-up] Round 5/20. Training Global Model only.
+  [Tier 1] Aggregating 14 weighted updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 6 ===
+  [Warm-up] Round 6/20. Training Global Model only.
+  [Tier 1] Aggregating 7 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (14). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 7 ===
+  [Warm-up] Round 7/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 8 ===
+  [Warm-up] Round 8/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (7). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 9 ===
+  [Warm-up] Round 9/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 10 ===
+  [Warm-up] Round 10/20. Training Global Model only.
+  [Tier 1] Aggregating 10 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 11 ===
+  [Warm-up] Round 11/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 22.00%
+
+=== Round 12 ===
+  [Warm-up] Round 12/20. Training Global Model only.
+  [Tier 1] Aggregating 13 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 13 ===
+  [Warm-up] Round 13/20. Training Global Model only.
+  [Tier 1] Aggregating 15 weighted updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 19.01%
+
+=== Round 14 ===
+  [Warm-up] Round 14/20. Training Global Model only.
+  [Tier 1] Aggregating 14 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (8). Aggregating...
+  [Tier 3] Client 43 update (w=1.00) arrived for Topic 0. Staleness: 12
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 10.00%
+
+=== Round 15 ===
+  [Warm-up] Round 15/20. Training Global Model only.
+  [Tier 1] Aggregating 14 weighted updates for Topic 0
+  [Tier 3] Client 42 update (w=1.00) arrived for Topic 0. Staleness: 14
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 29.17%
+
+=== Round 16 ===
+  [Warm-up] Round 16/20. Training Global Model only.
+  [Tier 1] Aggregating 17 weighted updates for Topic 0
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 41.11%
+
+=== Round 17 ===
+  [Warm-up] Round 17/20. Training Global Model only.
+  [Tier 1] Aggregating 13 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (10). Aggregating...
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 30.76%
+
+=== Round 18 ===
+  [Warm-up] Round 18/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (7). Aggregating...
+  [Tier 3] Client 52 update (w=1.00) arrived for Topic 0. Staleness: 16
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 20.36%
+
+=== Round 19 ===
+  [Warm-up] Round 19/20. Training Global Model only.
+  [Tier 1] Aggregating 11 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (6). Aggregating...
+  [Tier 3] Client 14 update (w=1.00) arrived for Topic 0. Staleness: 16
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 31.99%
+
+=== Round 20 ===
+  [Warm-up] Round 20/20. Training Global Model only.
+  [Tier 1] Aggregating 9 weighted updates for Topic 0
+  [Tier 2] Buffer full for Topic 0 (9). Aggregating...
+  [Tier 3] Client 52 update (w=1.00) arrived for Topic 0. Staleness: 16
+  [Tier 3] Client 39 update (w=1.00) arrived for Topic 0. Staleness: 14
+  [Tier 3] Client 14 update (w=1.00) arrived for Topic 0. Staleness: 13
+  [Tier 3] Client 43 update (w=1.00) arrived for Topic 0. Staleness: 10
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.91%
+
+=== Round 21 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Tier 3] Client 43 update (w=1.00) arrived for Topic 0. Staleness: 15
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.89%
+
+=== Round 22 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Tier 3] Client 14 update (w=1.00) arrived for Topic 0. Staleness: 11
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.90%
+
+=== Round 23 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Tier 3] Client 33 update (w=1.00) arrived for Topic 0. Staleness: 14
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.91%
+
+=== Round 24 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.92%
+
+=== Round 25 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Tier 3] Client 43 update (w=1.00) arrived for Topic 0. Staleness: 21
+  [Tier 3] Client 39 update (w=1.00) arrived for Topic 0. Staleness: 21
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+Global Accuracy: 26.91%
+
+=== Round 26 ===
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+Error in client processing: result type Float can't be cast to the desired output type Long
+  [Tier 3] Client 52 update (w=1.00) arrived for Topic 0. Staleness: 20
+  [Fusion] Re-injecting global knowledge into Topic Models (beta=0.05)...
+
+Simulation interrupted by user.
