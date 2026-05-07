@@ -30,10 +30,37 @@ class Logger(object):
         self.terminal.flush()
         self.log.flush()
 
+import matplotlib.pyplot as plt
+
+def plot_metrics(metrics, filename):
+    rounds = range(1, len(metrics['loss']) + 1)
+    
+    fig, ax1 = plt.subplots()
+    
+    color = 'tab:red'
+    ax1.set_xlabel('Round')
+    ax1.set_ylabel('Loss', color=color)
+    ax1.plot(rounds, metrics['loss'], color=color, label='Loss')
+    ax1.tick_params(axis='y', labelcolor=color)
+    
+    ax2 = ax1.twinx()  
+    
+    color = 'tab:blue'
+    ax2.set_ylabel('Accuracy (%)', color=color)
+    ax2.plot(rounds, metrics['accuracy'], color=color, label='Accuracy')
+    ax2.tick_params(axis='y', labelcolor=color)
+    
+    plt.title('Training Metrics')
+    fig.tight_layout()
+    plt.savefig(filename)
+    print(f"Metrics plot saved to {filename}")
+
 def main():
     # Setup logging
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     log_dir = "./DoubleCluster/log"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
     log_file = f"{log_dir}/simulation_{CONFIG['dataset']}_alpha{CONFIG['dirichlet_alpha']}_{timestamp}.log"
     sys.stdout = Logger(log_file)
     print(f"Logging to {log_file}")
@@ -76,6 +103,10 @@ def main():
         print(f"\nSimulation failed with error: {e}")
         raise e
     finally:
+        # Plot metrics
+        plot_file = f"{log_dir}/simulation_{CONFIG['dataset']}_alpha{CONFIG['dirichlet_alpha']}_{timestamp}.png"
+        plot_metrics(server.metrics, plot_file)
+        
         # Restore stdout
         sys.stdout = sys.stdout.terminal
 

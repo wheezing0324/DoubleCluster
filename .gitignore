@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and large files
+data/
+baselines/
+log/
+
+# Environments
+.venv/
+venv/
+ENV/
+
+# VS Code
+.vscode/

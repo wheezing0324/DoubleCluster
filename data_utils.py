@@ -20,6 +20,14 @@ def get_dataset(name, root):
         train_dataset = datasets.MNIST(root=root, train=True, download=True, transform=transform)
         test_dataset = datasets.MNIST(root=root, train=False, download=True, transform=transform)
         n_classes = 10
+    elif name == 'cifar100':
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
+        ])
+        train_dataset = datasets.CIFAR100(root=root, train=True, download=True, transform=transform)
+        test_dataset = datasets.CIFAR100(root=root, train=False, download=True, transform=transform)
+        n_classes = 100
     else:
         raise ValueError(f"Unknown dataset: {name}")
     return train_dataset, test_dataset, n_classes
@@ -31,6 +39,9 @@ def dirichlet_partition(dataset, n_clients, alpha, seed=42):
     if isinstance(dataset, datasets.CIFAR10):
         labels = np.array(dataset.targets)
         n_classes = 10
+    elif isinstance(dataset, datasets.CIFAR100):
+        labels = np.array(dataset.targets)
+        n_classes = 100
     elif isinstance(dataset, datasets.MNIST):
         labels = dataset.targets.numpy()
         n_classes = 10
@@ -45,38 +56,42 @@ def dirichlet_partition(dataset, n_clients, alpha, seed=42):
     client_indices = {i: [] for i in range(n_clients)}
     
     # Distribute per class
+    client_data_map = {i: [] for i in range(n_clients)}
+    
     for k in range(n_classes):
         indices = class_indices[k]
         np.random.shuffle(indices)
         
         # Dirichlet distribution for class k
-        # concentration parameter must be positive
+        # Sample proportions from Dirichlet distribution
+        # alpha is concentration parameter.
+        # size=n_clients means we get a vector of length n_clients that sums to 1.
         proportions = np.random.dirichlet(np.repeat(alpha, n_clients))
         
-        # Balance check to avoid empty clients if possible, but Dirichlet allows imbalance
-        # We just calculate counts
-        
+        # Calculate number of samples of class k for each client
+        # We use floor to ensure integer counts, and handle remainder
         counts = (proportions * len(indices)).astype(int)
         
-        # Fix rounding errors
+        # Fix rounding errors (some samples might be left over)
         diff = len(indices) - counts.sum()
         if diff > 0:
-            # Add to random clients
+            # Add remaining samples to random clients
             for i in np.random.choice(n_clients, diff, replace=False):
                 counts[i] += 1
-        elif diff < 0:
-            # Remove from random clients with enough samples
-            # This is rare as floor reduces sum
-            pass
-            
+                
+        # Assign indices to clients
         current_idx = 0
         for client_id in range(n_clients):
             n_samples = counts[client_id]
             if n_samples > 0:
-                client_indices[client_id].extend(indices[current_idx : current_idx + n_samples])
+                samples = indices[current_idx : current_idx + n_samples]
+                client_data_map[client_id].extend(samples)
                 current_idx += n_samples
+
+    # Convert to list of indices
+    final_client_indices = [client_data_map[i] for i in range(n_clients)]
                 
-    return client_indices
+    return final_client_indices
 
 def get_client_loaders(dataset_name, root, n_clients, batch_size, alpha):
     print(f"Loading {dataset_name} and partitioning...")

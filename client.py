@@ -93,7 +93,17 @@ class Client:
                 optimizer.zero_grad()
                 output = model(data)
                 loss = self.criterion(output, target)
+                
+                # Check for NaN loss
+                if torch.isnan(loss):
+                    print(f"Warning: NaN loss detected in client {self.client_id} at epoch {epoch}")
+                    continue
+                    
                 loss.backward()
+                
+                # Add Gradient Clipping to prevent explosion
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=10.0)
+                
                 optimizer.step()
                 batch_loss.append(loss.item())
             if batch_loss:
@@ -105,6 +115,12 @@ class Client:
             'weights': {k: v.cpu() for k, v in model.state_dict().items()},
             'loss': np.mean(epoch_loss) if epoch_loss else 0.0
         }
+        
+        # Additional safety: Clean up weights in result if they contain NaNs
+        for k in result['weights']:
+            if torch.isnan(result['weights'][k]).any():
+                print(f"Warning: NaN detected in trained weights for key {k} in client {self.client_id}. Cleaning up.")
+                result['weights'][k] = torch.zeros_like(result['weights'][k])
 
         if return_prototype:
             result['prototype'] = self._compute_prototype(model)
