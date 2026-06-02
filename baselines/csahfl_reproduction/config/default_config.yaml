@@ -1,0 +1,76 @@
+# CSAHFL Default Configuration
+# Core system hyperparameters and settings
+
+# System Configuration
+system:
+  num_clients: 200              # Total number of clients (N)
+  num_edge_servers: 5           # Total number of edge servers (M)
+  clients_per_edge: 40          # Approximate clients per edge server
+  seed: 42                      # Random seed for reproducibility
+  device: "cuda"                # Device for training (cuda/cpu)
+  deterministic: true           # Use deterministic algorithms for reproducibility
+  num_classes: 10
+
+# Clustering Configuration (Section 3.3)
+clustering:
+  svd_components: 10            # Number of singular vectors (p) for truncated SVD
+  clustering_threshold: 20      # Optimal threshold β for hierarchical clustering
+  linkage_method: "average"     # Linkage method for hierarchical clustering
+  perform_once: true            # One-shot clustering at beginning
+
+# Semi-Asynchronous Aggregation Configuration (Section 3.4)
+intra_cluster:
+  max_epochs: 10                # Maximum local epochs (E_max)
+  batch_size: 10                # Batch size for local training (B)
+  tolerance_alpha: 1.5          # Optimal tolerance parameter α for stragglers
+  staleness_gamma: 1.0          # Staleness discount factor γ
+  unit_time: 0.01               # Unit computation time (t_unit)
+  network_bandwidth: 1000000    # Network bandwidth in bytes/second (B_w)
+
+# Inter-Cluster Aggregation Configuration (Section 3.5)
+inter_cluster:
+  kl_epsilon: 1.0e-10           # Epsilon for KL divergence numerical stability
+  use_distribution_weight: true # Enable distribution-aware weighting
+  use_quantity_weight: true     # Enable quantity-based weighting
+
+# Local Training Configuration
+training:
+  learning_rate: 0.01           # SGD learning rate
+  momentum: 0.9                 # SGD momentum
+  weight_decay: 0.0001          # Weight decay for regularization
+  loss_function: "cross_entropy" # Loss function type
+  optimizer: "sgd"              # Optimizer type
+
+# Experiment Configuration
+experiment:
+  total_cloud_rounds: 50        # Total cloud aggregation rounds (rc)
+  edge_rounds_per_cloud: 3      # Edge aggregation rounds per cloud round (re)
+  total_communication_rounds: 150 # Total communication rounds (rc × re)
+  eval_frequency: 1             # Evaluate every N cloud rounds
+  save_checkpoints: false       # Save model checkpoints
+  log_frequency: 1              # Log every N rounds
+
+# Mobility Configuration
+mobility:
+  staying_prob: 1.0      # Probability client stays at current ES (ps)
+  # ps=1.0: static scenario
+  # ps=0.5: high-mobility scenario
+  update_frequency: 1           # Update mobility every N cloud rounds
+  use_markov_chain: true        # Use Markov chain for mobility simulation
+
+# Model Configuration
+model:
+  dropout_rate: 0.5             # Dropout rate for fully connected layer
+  hidden_size: 128              # Hidden layer size
+  conv1_channels: 32            # First convolutional layer channels
+  conv2_channels: 64            # Second convolutional layer channels
+  kernel_size: 3                # Convolutional kernel size
+  pool_size: 2                  # Max pooling size
+
+# Logging Configuration
+logging:
+  level: "INFO"                 # Logging level
+  log_dir: "experiments/results/logs"
+  save_plots: true              # Save convergence plots
+  save_tables: true             # Save result tables
+  tensorboard: false            # Enable TensorBoard logging

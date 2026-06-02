@@ -1,9 +1,0 @@
-Logging to ./log/simulation_cifar10_alpha0.1_20260210_224404.log
-Initializing Simulation with cifar10...
-Loading cifar10 and partitioning...
-Data loaded.
-Initializing Topic Models with noise...
-Server started. Training for 250 rounds.
-
-=== Round 1 ===
-  [Warm-up] Round 1/20. Training Global Model only.

@@ -56,7 +56,7 @@ class BasicBlock(nn.Module):
 from config import CONFIG
 
 class ResNet(nn.Module):
-    def __init__(self, block, num_blocks, num_classes=10):
+    def __init__(self, block, num_blocks, num_classes=100):
         super(ResNet, self).__init__()
         self.in_planes = 64
         
@@ -92,7 +92,7 @@ class ResNet(nn.Module):
         out = self.linear(out)
         return out
 
-def ResNet18(num_classes=10):
+def ResNet18(num_classes=100):
     return ResNet(BasicBlock, [2, 2, 2, 2], num_classes=num_classes)
 
 def get_model(name, num_classes):

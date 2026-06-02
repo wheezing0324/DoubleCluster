@@ -4,6 +4,8 @@ import numpy as np
 import copy
 import torch
 import torch.nn as nn
+import csv
+import os
 from config import CONFIG
 from models import get_model
 
@@ -29,9 +31,10 @@ class PriorityQueue:
         return self._queue[0][0]
 
 class Server:
-    def __init__(self, clients, device='cpu'):
+    def __init__(self, clients, device='cpu', environment=None):
         self.clients = clients
         self.device = device
+        self.environment = environment
         self.n_topics = CONFIG['n_topics']
         
         # 1. Models
@@ -46,7 +49,7 @@ class Server:
             model_i = copy.deepcopy(base_state)
             # Add noise
             for key in model_i:
-                if 'weight' in key or 'bias' in key:
+                if ('weight' in key or 'bias' in key) and model_i[key].is_floating_point():
                     noise = torch.randn_like(model_i[key]) * 0.01
                     model_i[key] += noise
             self.topic_models[i] = model_i
@@ -65,6 +68,85 @@ class Server:
         # State
         self.current_round = 0
         self.test_loader = None # Will be injected
+        self.metrics = {'loss': [], 'accuracy': []}
+        self.tracking_name = None
+        self.metrics_path = None
+        self.checkpoint_dir = None
+        self.checkpoint_interval = CONFIG.get('checkpoint_interval', 10)
+        
+        # Ablation flags (default values)
+        self.beta = CONFIG.get('beta', 0)
+        self.clustering_mode = CONFIG.get('clustering_mode', 'soft')
+        self.aggregation_strategy = CONFIG.get('aggregation_strategy', 'hide_adf')
+
+    def configure_tracking(self, name, root=None, checkpoint_interval=None):
+        self.tracking_name = name
+        base_root = root or os.path.join(os.path.dirname(os.path.abspath(__file__)), "log", "runs")
+        run_dir = os.path.join(base_root, name)
+        self.checkpoint_dir = os.path.join(run_dir, "checkpoints")
+        os.makedirs(self.checkpoint_dir, exist_ok=True)
+        self.metrics_path = os.path.join(run_dir, "metrics.csv")
+        self.checkpoint_interval = checkpoint_interval or CONFIG.get('checkpoint_interval', 10)
+        if not os.path.exists(self.metrics_path):
+            with open(self.metrics_path, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["round", "loss", "accuracy"])
+        print(f"  [Tracking] metrics={self.metrics_path}")
+        print(f"  [Tracking] checkpoints={self.checkpoint_dir}, interval={self.checkpoint_interval}")
+
+    def get_checkpoint_state(self):
+        return {
+            "server_class": self.__class__.__name__,
+            "round": self.current_round,
+            "metrics": self.metrics,
+            "global_model": self.global_model.state_dict(),
+            "topic_models": self.topic_models,
+            "topic_versions": self.topic_versions,
+            "client_prototypes": self.client_prototypes,
+            "topic_prototypes": self.topic_prototypes,
+            "tier2_buffer": self.tier2_buffer,
+            "async_queue": {
+                "queue": self.async_queue._queue,
+                "index": self.async_queue._index,
+            },
+            "config": copy.deepcopy(CONFIG),
+        }
+
+    def _to_cpu(self, value):
+        if isinstance(value, torch.Tensor):
+            return value.detach().cpu()
+        if isinstance(value, dict):
+            return {k: self._to_cpu(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self._to_cpu(v) for v in value]
+        if isinstance(value, tuple):
+            return tuple(self._to_cpu(v) for v in value)
+        return value
+
+    def save_checkpoint(self, keep_round=True):
+        if not self.checkpoint_dir or not self.tracking_name:
+            return
+        state = self._to_cpu(self.get_checkpoint_state())
+        round_path = os.path.join(self.checkpoint_dir, f"round_{self.current_round:04d}.pt")
+        latest_path = os.path.join(self.checkpoint_dir, "latest.pt")
+        torch.save(state, latest_path)
+        if keep_round:
+            torch.save(state, round_path)
+            print(f"  [Checkpoint] Saved {round_path}")
+        else:
+            print(f"  [Checkpoint] Saved {latest_path}")
+
+    def record_metrics(self, loss, accuracy):
+        if self.metrics_path:
+            with open(self.metrics_path, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([self.current_round, loss, accuracy])
+        if self.checkpoint_dir and self.current_round > 0:
+            keep_round = (
+                self.current_round % self.checkpoint_interval == 0
+                or self.current_round == CONFIG.get('global_rounds', -1)
+            )
+            self.save_checkpoint(keep_round=keep_round)
         
     def run(self):
         print(f"Server started. Training for {CONFIG['global_rounds']} rounds.")
@@ -147,7 +229,9 @@ class Server:
             dists = []
             for k in range(self.n_topics):
                 if k in self.topic_prototypes:
-                    d = np.linalg.norm(p_i - self.topic_prototypes[k])
+                    # Use Squared Euclidean Distance for Gaussian Kernel similarity
+                    # Formula 1.2: - || phi(Di) - mu_k ||^2 / tau
+                    d = np.linalg.norm(p_i - self.topic_prototypes[k]) ** 2
                     dists.append(d)
                 else:
                     dists.append(1e9) # Far away if no prototype
@@ -158,15 +242,25 @@ class Server:
             # Adaptive Temperature Scaling to ensure Soft Clustering
             # If raw distances are used, exp(-d) might decay too fast (Hard Clustering).
             # We scale logits so they have a standard deviation of ~1.0, preserving relative order but ensuring softness.
-            dist_std = np.std(dists)
-            temperature = dist_std if dist_std > 1e-6 else 1.0
             
-            # Invert distance: closer is higher weight
-            logits = -dists / temperature
-            
-            # Normalize for numerical stability
-            logits -= np.max(logits)
-            weights = np.exp(logits) / np.sum(np.exp(logits))
+            # Ablation: Clustering Mode
+            if self.clustering_mode == 'random':
+                weights = np.random.dirichlet(np.ones(self.n_topics))
+            elif self.clustering_mode == 'hard':
+                # Hard Assignment: 1 for min distance, 0 for others
+                weights = np.zeros(self.n_topics)
+                min_idx = np.argmin(dists)
+                weights[min_idx] = 1.0
+            else:
+                # Soft Assignment (Default)
+                # Normalize distances by their standard deviation to serve as temperature tau
+                dist_std = np.std(dists)
+                temperature = dist_std if dist_std > 1e-6 else 1.0
+                
+                # Formula: exp( -dist / tau )
+                logits = -dists / temperature
+                logits -= np.max(logits) # Numerical stability
+                weights = np.exp(logits) / np.sum(np.exp(logits))
             
             client.topic_weights = weights
             
@@ -183,8 +277,15 @@ class Server:
             m = len(self.clients)
         else:
             m = max(1, int(CONFIG.get('sample_fraction', 0.1) * len(self.clients)))
-            
-        active_cids = np.random.choice(list(self.clients.keys()), m, replace=False)
+
+        if self.environment is not None:
+            active_cids = self.environment.select_clients(
+                self.current_round,
+                population=list(self.clients.keys()),
+                force_all=request_proto,
+            )
+        else:
+            active_cids = np.random.choice(list(self.clients.keys()), m, replace=False)
         
         # Base round time (for async calc) -> Mean of Fast profile
         base_time = CONFIG['profiles']['fast']['mean']
@@ -194,7 +295,7 @@ class Server:
             client = self.clients[cid]
             
             # 1. Probe Latency
-            latency = client.probe_latency()
+            latency = client.probe_latency(self.current_round)
             
             # 2. Determine Tier
             if latency < CONFIG['tier_thresholds']['T1']:
@@ -203,6 +304,27 @@ class Server:
                 tier = 'T2'
             else:
                 tier = 'T3'
+            
+            # Determine Training Mode based on Tier
+            # Tier 1 & 2: Update Backbone & Head (Full Training)
+            # Tier 3: Update Head (Async)
+            # Apply Ablation Strategy: 'drop_slow' -> Skip Tier 3
+            if self.aggregation_strategy == 'drop_slow' and tier == 'T3':
+                return None
+            
+            # Apply Ablation Strategy: 'all_sync' -> Treat T3 as T1 (Sync)
+            if self.aggregation_strategy == 'all_sync':
+                 tier = 'T1' # Force sync
+            
+            # Apply Ablation Strategy: 'all_async' -> Treat T1/T2 as T3 (Async)
+            if self.aggregation_strategy == 'all_async':
+                 tier = 'T3' # Force async
+            
+            mode = 'all'
+            if tier in ['T1', 'T2']:
+                mode = 'all'
+            elif tier == 'T3':
+                mode = 'head_only'
             
             # 3. Soft Mixing of Models (Soft-EM Downlink)
             is_warmup = (self.current_round <= CONFIG.get('warmup_rounds', 0))
@@ -216,6 +338,11 @@ class Server:
                 # Soft-EM Mixing
                 client_topic_weights = client.topic_weights
                 mixed_weights = None
+                
+                # Ablation Strategy: 'all_async' (No Tiering, All Async)
+                # But here we are simulating mixed_weights construction.
+                # If all_async, we still need an initial model.
+                # Soft-EM is fine for model initialization.
                 
                 # Assign primary topic for tracking/logging
                 client.assigned_topic = int(np.argmax(client_topic_weights))
@@ -247,8 +374,13 @@ class Server:
                                 # Only mix floating point weights
                                 if mixed_weights[key].is_floating_point():
                                     mixed_weights[key] += model_k[key] * w_k
-                                # For non-floating (e.g. Long), we keep the value from first_k (dominant topic)
-                                # This avoids Float -> Long casting error in load_state_dict
+                                    
+                # Check mixed_weights for NaN/Inf before sending to client
+                for key in mixed_weights:
+                    if mixed_weights[key].is_floating_point():
+                        if not torch.isfinite(mixed_weights[key]).all():
+                            print(f"Warning: NaN/Inf detected in mixed_weights (key: {key}) before sending to client. Replacing with zeros to recover.")
+                            mixed_weights[key] = torch.zeros_like(mixed_weights[key])
             
             # 4. Train (Simulation)
             model = get_model(CONFIG['model_name'], CONFIG['num_classes'])
@@ -421,10 +553,13 @@ class Server:
                 self.topic_versions[k] += 1
             
     def check_tier2_buffers(self):
+        # Ablation: Buffer Size Override
+        threshold = CONFIG.get('tier2_buffer_threshold', CONFIG['buffer_size'])
+        
         for k in range(self.n_topics):
             buffer = self.tier2_buffer[k] # List of (delta, w_k)
-            if len(buffer) >= CONFIG['buffer_size']:
-                print(f"  [Tier 2] Buffer full for Topic {k} ({len(buffer)}). Aggregating...")
+            if len(buffer) >= threshold:
+                print(f"  [Tier 2] Buffer full for Topic {k} ({len(buffer)} >= {threshold}). Aggregating...")
                 
                 total_weight = 0.0
                 aggregated_delta = None
@@ -478,11 +613,12 @@ class Server:
         client_weights = event['weights']
         start_round = event['start_round']
         
+        # Staleness tau
         staleness = self.current_round - start_round
         
-        # Exponential Decay
-        rho = 0.9
-        decay_factor = rho ** staleness
+        # Polynomial Decay (Formula: alpha(tau) = 1 / (1 + tau)^gamma)
+        gamma = CONFIG.get('async_gamma', 1.0) # Decay hyperparameter
+        decay_factor = 1.0 / ((1 + staleness) ** gamma)
         
         # Gradient Clipping on Delta
         total_norm = 0.0
@@ -497,24 +633,34 @@ class Server:
             
         # Apply to all relevant topics
         for k in range(self.n_topics):
-            w_k = client_weights[k]
+            w_k = client_weights[k] # pi_{i,k}
             if w_k < 1e-4: continue
             
-            print(f"  [Tier 3] Client {cid} update (w={w_k:.2f}) arrived for Topic {k}. Staleness: {staleness}")
+            print(f"  [Tier 3] Client {cid} update (w={w_k:.2f}) arrived for Topic {k}. Staleness: {staleness}, Factor: {decay_factor:.4f}")
             
             current_model = self.topic_models[k]
-            lr = 0.01 # Async LR
+            lr = CONFIG.get('async_lr', 0.01) # eta_g
             
-            # W_new = W_curr + lr * decay * w_k * delta_clipped
+            # W_{t+1} = W_t + eta_g * alpha(tau) * pi_{i,k} * Delta
             for key in current_model:
                 if current_model[key].dtype not in [torch.float32, torch.float16, torch.float64]:
+                    continue
+                if key not in delta:
                     continue
                     
                 if current_model[key].device != self.device:
                     current_model[key] = current_model[key].to(self.device)
-                    
-                update = delta[key].to(self.device) * scale
-                current_model[key] += lr * decay_factor * w_k * update
+                
+                # Apply update
+                # update = lr * decay_factor * w_k * delta[key].to(self.device) * scale
+                # scale is for gradient clipping
+                
+                d_val = delta[key].to(self.device)
+                update = lr * decay_factor * w_k * d_val * scale
+                
+                current_model[key] += update
+            
+            self.topic_versions[k] += 1
 
     def global_fusion(self):
         # Merge A, B, C based on data counts or just average?
@@ -591,15 +737,15 @@ class Server:
         
         self.global_model.load_state_dict(global_weights)
         
-        # Re-injection (Optional, currently 0)
-        beta = 0.5 # Small re-injection to prevent complete drift
+        # Re-injection
+        beta = self.beta # Use ablation flag
         print(f"  [Fusion] Re-injecting global knowledge into Topic Models (beta={beta})...")
         
         for k in range(self.n_topics):
             topic_model = self.topic_models[k]
             for key in topic_model:
-                 # Skip LongTensor
-                if topic_model[key].dtype not in [torch.float32, torch.float16, torch.float64]:
+                 # Skip non-floating point tensors (like LongTensors)
+                if not topic_model[key].is_floating_point():
                     continue
                     
                 w_topic = topic_model[key]
@@ -608,6 +754,11 @@ class Server:
                 if w_topic.device != self.device: w_topic = w_topic.to(self.device)
                 if w_global.device != self.device: w_global = w_global.to(self.device)
                 
+                # Check for NaNs before applying to prevent CUDA invalid value errors
+                if torch.isnan(w_topic).any() or torch.isnan(w_global).any():
+                    print(f"Warning: NaN detected in topic {k} key {key}. Skipping re-injection.")
+                    continue
+                    
                 topic_model[key] = (1 - beta) * w_topic + beta * w_global
 
     def evaluate_global(self):
@@ -618,14 +769,27 @@ class Server:
         
         correct = 0
         total = 0
+        test_loss = 0.0
+        criterion = nn.CrossEntropyLoss(reduction='sum')
+        
         with torch.no_grad():
             for data, target in self.test_loader:
                 data, target = data.to(self.device), target.to(self.device)
                 output = self.global_model(data)
+                
+                loss = criterion(output, target)
+                test_loss += loss.item()
+                
                 pred = output.argmax(dim=1)
                 correct += pred.eq(target).sum().item()
                 total += data.size(0)
                 
         acc = 100. * correct / total
-        print(f"Global Accuracy: {acc:.2f}%")
+        avg_loss = test_loss / total
+        
+        self.metrics['loss'].append(avg_loss)
+        self.metrics['accuracy'].append(acc)
+        self.record_metrics(avg_loss, acc)
+        
+        print(f"Global Accuracy: {acc:.2f}%, Global Loss: {avg_loss:.4f}")
         return acc

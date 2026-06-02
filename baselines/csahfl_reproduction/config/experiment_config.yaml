@@ -1,0 +1,318 @@
+# CSAHFL Experiment Configuration
+# Configuration for all validation experiments (Table 1, 2, 3, Figure 3, 4)
+
+# ============================================================================
+# MAIN EXPERIMENTS (Table 1, Table 2, Figure 3)
+# ============================================================================
+main_experiments:
+  # Datasets to evaluate
+  datasets:
+    - "fashion_mnist"
+    - "cifar10"
+    - "svhn"
+  
+  # Edge-layer Non-IID settings
+  eniid_settings:
+    - "EIID"       # All classes at each edge server
+    - "ENIID50%"   # 50% classes at each edge server
+    - "ENIID30%"   # 30% classes at each edge server
+  
+  # Mobility scenarios
+  mobility_scenarios:
+    static:
+      staying_probability: 1.0
+      description: "No client mobility"
+    high_mobility:
+      staying_probability: 0.5
+      description: "50% probability of staying at current ES"
+  
+  # Training configuration
+  training:
+    total_cloud_rounds: 50      # rc = 50
+    edge_rounds_per_cloud: 3    # re = 3
+    total_communication_rounds: 150  # rc × re = 150
+    clients_per_round: 200      # All clients participate
+    batch_size: 64
+    evaluation_frequency: 1     # Evaluate every cloud round
+  
+  # Target accuracies for Table 2 (time-to-accuracy)
+  target_accuracies:
+    fashion_mnist:
+      - 60.0
+      - 85.0
+    cifar10:
+      - 40.0
+      - 60.0
+    svhn:
+      - 60.0
+      - 85.0
+  
+  # Expected results for validation (Table 1 - Static Scenario)
+  expected_accuracy_table1:
+    fashion_mnist:
+      EIID: 92.14
+      ENIID50%: 91.11
+      ENIID30%: 88.49
+    cifar10:
+      EIID: 69.35
+      ENIID50%: 68.06
+      ENIID30%: 64.75
+    svhn:
+      EIID: 90.68
+      ENIID50%: 89.62
+      ENIID30%: 88.17
+  
+  # Expected training times for validation (Table 2 - Fashion-MNIST)
+  expected_training_time_table2:
+    fashion_mnist:
+      target_60_percent: 724    # seconds
+      target_85_percent: 1392   # seconds
+
+# ============================================================================
+# ABLATION STUDY (Table 3)
+# ============================================================================
+ablation_study:
+  # Variants to evaluate
+  variants:
+    full_csahfl:
+      name: "CSAHFL (Full)"
+      use_clustering: true
+      use_semi_asynchronous: true
+      use_distribution_aware: true
+      description: "Complete CSAHFL with all components"
+    
+    without_clustering:
+      name: "w/o C"
+      use_clustering: false
+      use_semi_asynchronous: true
+      use_distribution_aware: true
+      description: "Random client assignment instead of clustering"
+    
+    without_semi_async:
+      name: "w/o SA"
+      use_clustering: true
+      use_semi_asynchronous: false
+      use_distribution_aware: true
+      description: "Synchronous intra-cluster aggregation only"
+    
+    without_distribution:
+      name: "w/o D"
+      use_clustering: true
+      use_semi_asynchronous: true
+      use_distribution_aware: false
+      description: "Quantity-only weighting (no distribution awareness)"
+  
+  # Datasets for ablation
+  datasets:
+    - "fashion_mnist"
+    - "cifar10"
+  
+  # ENIID settings for ablation
+  eniid_settings:
+    - "ENIID50%"
+    - "ENIID30%"
+  
+  # Expected accuracy drops (Table 3)
+  expected_results:
+    without_clustering:
+      accuracy_drop_percent: 5.0    # >5% drop expected
+      time_increase_factor: 1.0      # Minimal time impact
+    
+    without_semi_async:
+      accuracy_drop_percent: 0.5     # Minimal accuracy impact
+      time_increase_factor: 3.0      # >3x time increase expected
+    
+    without_distribution:
+      accuracy_drop_percent: 1.0     # >1% drop expected
+      time_increase_factor: 1.0      # Minimal time impact
+
+# ============================================================================
+# HYPERPARAMETER ANALYSIS (Figure 4)
+# ============================================================================
+hyperparameter_analysis:
+  # Tolerance parameter α sweep (Eq. 8)
+  alpha_sweep:
+    values: [0.5, 1.0, 1.5, 2.0]
+    default: 1.5
+    description: "Straggler tolerance parameter for aggregation interval"
+    expected_optimal: 1.5
+  
+  # Maximum local epochs E_max sweep (Eq. 9)
+  emax_sweep:
+    values: [5, 10, 20, 30]
+    default: 10
+    description: "Maximum local training epochs per client"
+    expected_optimal: 10
+  
+  # Clustering threshold β sweep (Eq. 6)
+  beta_sweep:
+    values: [0, 5, 10, 15, 20, 25]
+    default: 20
+    description: "Hierarchical clustering distance threshold"
+    expected_optimal: 20
+  
+  # Configuration for sweeps
+  sweep_config:
+    dataset: "fashion_mnist"
+    eniid_setting: "ENIID50%"
+    mobility: "static"
+    total_cloud_rounds: 50
+    edge_rounds_per_cloud: 3
+  
+  # Expected performance trends
+  expected_trends:
+    alpha:
+      too_low: "α < 1.0: Too strict, many clients become stragglers"
+      optimal: "α = 1.5: Balanced straggler tolerance"
+      too_high: "α > 2.0: Too lenient, stale updates degrade accuracy"
+    
+    emax:
+      too_low: "E_max < 10: Insufficient local training, more communication"
+      optimal: "E_max = 10: Balanced local training vs communication"
+      too_high: "E_max > 10: Diminishing returns, potential overfitting"
+    
+    beta:
+      too_low: "β < 20: Too many small clusters, limited aggregation benefit"
+      optimal: "β = 20: Balanced cluster count and homogeneity"
+      too_high: "β > 20: Too few large clusters, reduced non-IID handling"
+
+# ============================================================================
+# MOBILITY EXPERIMENTS
+# ============================================================================
+mobility_experiments:
+  # Staying probability values to test
+  staying_probabilities:
+    - 1.0   # Static
+    - 0.9   # Low mobility
+    - 0.7   # Medium-low mobility
+    - 0.5   # High mobility
+    - 0.3   # Very high mobility
+  
+  # Expected performance degradation
+  expected_degradation:
+    max_accuracy_drop_percent: 5.0  # CSAHFL should maintain <5% drop
+    comparison_baselines:
+      - "macfl"
+      - "hiflash"
+  
+  # Mobility refresh configuration
+  cluster_refresh:
+    enabled: true
+    refresh_interval: 10  # Re-cluster every 10 cloud rounds in high mobility
+    min_staying_prob: 0.7  # Only refresh when ps < 0.7
+
+# ============================================================================
+# BASELINE COMPARISON CONFIGURATION
+# ============================================================================
+baseline_comparison:
+  # All baselines to compare against CSAHFL
+  baselines:
+    - "fedavg"      # Standard federated averaging
+    - "fedprox"     # FedAVG with proximal term
+    - "hierfedavg"  # Synchronous hierarchical FL
+    - "fedat"       # Asynchronous cross-tier FL
+    - "macfl"       # Mobility-aware clustered FL
+    - "hiflash"     # Adaptive staleness control FL
+    - "feduc"       # Time-sharing scheduling FL
+  
+  # Fair comparison settings
+  fair_comparison:
+    same_total_rounds: true
+    same_model_architecture: true
+    same_hyperparameters: true
+    same_data_partition: true
+  
+  # Metrics to compare
+  comparison_metrics:
+    - "final_accuracy"
+    - "convergence_rounds"
+    - "training_time"
+    - "time_to_target_accuracy"
+
+# ============================================================================
+# OUTPUT AND LOGGING CONFIGURATION
+# ============================================================================
+output:
+  # Directory structure for results
+  results_dir: "experiments/results"
+  tables_dir: "experiments/results/tables"
+  figures_dir: "experiments/results/figures"
+  logs_dir: "experiments/logs"
+  
+  # File formats
+  table_formats:
+    - "csv"
+    - "latex"
+    - "json"
+  
+  figure_formats:
+    - "png"
+    - "pdf"
+    - "svg"
+  
+  # Plotting configuration
+  plotting:
+    figsize: [12, 8]
+    dpi: 300
+    font_size: 14
+    line_width: 2.0
+    marker_size: 6.0
+    colors:
+      csahfl: "#1f77b4"
+      fedavg: "#ff7f0e"
+      fedprox: "#2ca02c"
+      hierfedavg: "#d62728"
+      fedat: "#9467bd"
+      macfl: "#8c564b"
+      hiflash: "#e377c2"
+      feduc: "#7f7f7f"
+  
+  # Logging verbosity
+  logging:
+    console_level: "INFO"
+    file_level: "DEBUG"
+    save_metrics_history: true
+    save_model_checkpoints: false
+
+# ============================================================================
+# REPRODUCIBILITY SETTINGS
+# ============================================================================
+reproducibility:
+  # Random seeds for reproducibility
+  seeds:
+    - 42    # Primary seed (paper default)
+    - 123   # Secondary seed for robustness
+    - 456   # Tertiary seed for robustness
+  
+  # Deterministic settings
+  deterministic:
+    torch_deterministic: true
+    cudnn_deterministic: true
+    cudnn_benchmark: false
+    python_hash_seed: 42
+  
+  # Environment recording
+  record_environment: true
+  save_config_snapshot: true
+
+# ============================================================================
+# PERFORMANCE OPTIMIZATION
+# ============================================================================
+performance:
+  # Parallelization settings
+  parallel:
+    num_workers: 4          # DataLoader workers
+    client_simulation: "sequential"  # sequential or parallel
+    max_concurrent_clients: 50  # If parallel, max simultaneous clients
+  
+  # Memory optimization
+  memory:
+    pin_memory: true        # Faster GPU transfer
+    non_blocking: true      # Async GPU transfer
+    clear_cache_frequency: 1  # Clear CUDA cache every N rounds
+  
+  # Speed optimizations
+  speed:
+    evaluate_on_cpu: true   # Evaluate on CPU to free GPU
+    mixed_precision: false  # AMP training (optional)
+    gradient_checkpointing: false  # Memory-efficient training

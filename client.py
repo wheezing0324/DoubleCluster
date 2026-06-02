@@ -7,10 +7,11 @@ import copy
 from config import CONFIG
 
 class Client:
-    def __init__(self, id, data_loader, profile_type='medium', device='cpu'):
+    def __init__(self, id, data_loader, profile_type='medium', device='cpu', environment=None):
         self.id = id
         self.data_loader = data_loader
         self.device = device
+        self.environment = environment
         self.profile_type = profile_type
         self.profile_params = CONFIG['profiles'][profile_type]
         
@@ -20,11 +21,14 @@ class Client:
         
         self.criterion = nn.CrossEntropyLoss()
 
-    def probe_latency(self):
+    def probe_latency(self, round_num=None):
         """
         Return estimated latency for the current round.
         Simulates network/compute volatility.
         """
+        if self.environment is not None and round_num is not None:
+            return self.environment.get_latency(round_num, self.id)
+
         mu = self.profile_params['mean']
         sigma = self.profile_params['std']
         
@@ -76,6 +80,7 @@ class Client:
         # Wait, I can't easily change signature without changing server call.
         # Let's assume we pass `current_round` in kwargs.
         current_round = kwargs.get('current_round', 0)
+        max_batches = kwargs.get('max_batches')
         
         lr = CONFIG['lr']
         # Apply decay only ONCE if round > step
@@ -89,11 +94,23 @@ class Client:
         for epoch in range(epochs):
             batch_loss = []
             for batch_idx, (data, target) in enumerate(self.data_loader):
+                if max_batches is not None and batch_idx >= max_batches:
+                    break
                 data, target = data.to(self.device), target.to(self.device)
                 optimizer.zero_grad()
                 output = model(data)
                 loss = self.criterion(output, target)
+                
+                # Check for NaN loss
+                if torch.isnan(loss):
+                    print(f"Warning: NaN loss detected in client {self.id} at epoch {epoch}")
+                    continue
+                    
                 loss.backward()
+                
+                # Add Gradient Clipping to prevent explosion
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=10.0)
+                
                 optimizer.step()
                 batch_loss.append(loss.item())
             if batch_loss:
@@ -105,6 +122,12 @@ class Client:
             'weights': {k: v.cpu() for k, v in model.state_dict().items()},
             'loss': np.mean(epoch_loss) if epoch_loss else 0.0
         }
+        
+        # Additional safety: Clean up weights in result if they contain NaNs
+        for k in result['weights']:
+            if torch.isnan(result['weights'][k]).any():
+                print(f"Warning: NaN detected in trained weights for key {k} in client {self.id}. Cleaning up.")
+                result['weights'][k] = torch.zeros_like(result['weights'][k])
 
         if return_prototype:
             result['prototype'] = self._compute_prototype(model)

@@ -1,0 +1,76 @@
+# Dataset Configuration for CSAHFL
+# Contains dataset-specific hyperparameters and settings
+
+# Fashion-MNIST Configuration
+fashion_mnist:
+  name: "Fashion-MNIST"
+  num_classes: 10
+  input_channels: 1
+  input_size: 28
+  mean: [0.2860]
+  std: [0.3530]
+  num_train_samples: 60000
+  num_test_samples: 10000
+  model_type: "CNNFashionMNIST"
+  # Recommended hyperparameters for Fashion-MNIST
+  learning_rate: 0.01
+  batch_size: 64
+  # Expected accuracy targets (Table 1)
+  target_accuracy:
+    EIID: 0.9214
+    ENIID50: 0.9111
+    ENIID30: 0.8849
+
+# CIFAR10 Configuration
+cifar10:
+  name: "CIFAR10"
+  num_classes: 10
+  input_channels: 3
+  input_size: 32
+  mean: [0.4914, 0.4822, 0.4465]
+  std: [0.2470, 0.2435, 0.2616]
+  num_train_samples: 50000
+  num_test_samples: 10000
+  model_type: "CNNCIFAR10"
+  # Recommended hyperparameters for CIFAR10
+  learning_rate: 0.01
+  batch_size: 64
+  # Expected accuracy targets (Table 1)
+  target_accuracy:
+    EIID: 0.6935
+    ENIID50: 0.6806
+    ENIID30: 0.6475
+
+# SVHN Configuration
+svhn:
+  name: "SVHN"
+  num_classes: 10
+  input_channels: 3
+  input_size: 32
+  mean: [0.4377, 0.4438, 0.4728]
+  std: [0.1980, 0.2010, 0.1970]
+  num_train_samples: 73257
+  num_test_samples: 26032
+  model_type: "CNNSVHN"
+  # Recommended hyperparameters for SVHN
+  learning_rate: 0.01
+  batch_size: 64
+  # Expected accuracy targets (Table 1)
+  target_accuracy:
+    EIID: 0.9068
+    ENIID50: 0.8962
+    ENIID30: 0.8817
+
+# Common dataset settings
+common:
+  # Data augmentation (optional, disabled by default for reproducibility)
+  use_augmentation: false
+  augmentation_params:
+    random_crop: false
+    random_horizontal_flip: false
+    normalize: true
+  
+  # DataLoader settings
+  num_workers: 4
+  pin_memory: true
+  drop_last: false

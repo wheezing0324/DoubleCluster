@@ -1,0 +1,45 @@
+# EAFL Configuration File
+experiment:
+  name: "EAFL_MNIST_T1"  # 实验名称
+  seed: 42                # 随机种子
+  device: "cuda"          # 设备: cpu, cuda
+  output_dir: "./results" # 输出目录
+
+# Dataset settings
+dataset:
+  name: "cifar100"           # 数据集: mnist, cifar10
+  num_clients: 100        # 客户端数量
+  non_iid_type: "T1"      # Non-IID类型: T1, T2
+  non_iid_param: 0.04     # Non-IID程度: epsilon(T1)或L_num(T2)
+
+# Model settings
+model:
+  name: "lenet_cifar10"       # 模型: cnn_mnist, lenet_cifar10
+  input_channels: 3      # 输入通道数
+  num_classes: 100         # 类别数
+
+# Training settings
+training:
+  max_iterations: 1600    # 最大迭代次数 T
+  local_epochs: 1         # 本地训练轮数
+  learning_rate: 0.005    # 学习率
+  momentum: 0.9           # SGD动量
+  batch_size: 64          # 批次大小
+  optimizer: "sgd"        # 优化器: sgd, adam
+
+# EAFL specific parameters
+eafl:
+  num_clusters: 5         # 聚类数量 N
+  re_clustering_interval: 100  # 重新聚类间隔 R
+  participation_ratio: 0.1     # 参与比例 φ
+  staleness_weight: "inverse"  # staleness权重函数: inverse, inverse_sqrt, exponential, linear
+
+# Communication settings
+communication:
+  max_staleness: 10       # 最大允许staleness
+  gradient_compression: false  # 是否压缩梯度
+
+# Evaluation
+evaluation:
+  metrics: ["accuracy", "loss"]  # 评估指标
+  test_frequency: 50      # 测试频率（每N轮）

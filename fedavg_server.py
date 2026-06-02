@@ -6,8 +6,8 @@ from server import Server
 from models import get_model
 
 class FedAvgServer(Server):
-    def __init__(self, clients, device='cpu'):
-        super().__init__(clients, device)
+    def __init__(self, clients, device='cpu', environment=None):
+        super().__init__(clients, device, environment=environment)
         # FedAvg only needs one global model, but we can reuse self.global_model
         # We don't need topic_models, buffers, or async queues for standard FedAvg
         # But to minimize code changes, we'll just ignore them.
@@ -25,7 +25,14 @@ class FedAvgServer(Server):
             # Standard FedAvg selects a fraction of clients (C=0.1 usually)
             # Here we select 10 clients per round (0.1 * 100)
             m = max(1, int(CONFIG.get('fedavg_fraction', 0.1) * CONFIG['n_clients']))
-            selected_indices = np.random.choice(range(CONFIG['n_clients']), m, replace=False)
+            if self.environment is not None:
+                selected_indices = self.environment.select_clients(
+                    r,
+                    population=range(CONFIG['n_clients']),
+                    sample_fraction=CONFIG.get('fedavg_fraction', 0.1),
+                )
+            else:
+                selected_indices = np.random.choice(range(CONFIG['n_clients']), m, replace=False)
             
             # Step 2: Training & Aggregation (Synchronous)
             # In standard FedAvg, we wait for ALL selected clients to finish (Straggler effect)
@@ -41,7 +48,7 @@ class FedAvgServer(Server):
                 client = self.clients[cid]
                 
                 # Simulate latency
-                latency = client.probe_latency()
+                latency = client.probe_latency(r)
                 if latency > max_latency:
                     max_latency = latency
                     
